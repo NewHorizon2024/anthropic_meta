@@ -1,6 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { type MessageStream } from "@anthropic-ai/sdk/lib/MessageStream.mjs";
-
 import { type MessageStreamParams } from "@anthropic-ai/sdk/resources";
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
