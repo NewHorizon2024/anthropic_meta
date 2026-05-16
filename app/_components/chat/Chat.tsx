@@ -10,20 +10,29 @@ type ChatProps = Readonly<{
   chatTitle: string;
 }>;
 
-const testMessage: ChatMessage[] = [
-  { role: "assistant", content: "What I can help you", id: "a" },
-  { role: "user", content: "What the capital of Poland", id: "b" },
-];
-
 export default function Chat({ chatTitle }: ChatProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
+  const [shouldAutoScroll, setShouldAutoScroll] = useState(true);
   const bottomRef = useRef<HTMLDivElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    if (shouldAutoScroll) {
+      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, shouldAutoScroll]);
+
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return;
+
+    const { scrollTop, scrollHeight, clientHeight } =
+      scrollContainerRef.current;
+    const isNearBottom = scrollHeight - scrollTop - clientHeight < 100;
+
+    setShouldAutoScroll(isNearBottom);
+  };
 
   async function sendMessage() {
     if (!input.trim() || isStreaming) return;
@@ -35,6 +44,7 @@ export default function Chat({ chatTitle }: ChatProps) {
     setMessages([...newMessages, { role: "assistant", content: "" }]);
     setInput("");
     setIsStreaming(true);
+    setShouldAutoScroll(true);
 
     try {
       const response = await fetch("/api/public-chat", {
@@ -80,7 +90,11 @@ export default function Chat({ chatTitle }: ChatProps) {
     <div className="flex flex-col border gap-4 p-4 rounded-lg">
       <h1 className="text-center">{chatTitle}</h1>
       <hr />
-      <div className="flex flex-col max-h-[800px] overflow-y-auto break-words gap-6">
+      <div
+        ref={scrollContainerRef}
+        onScroll={handleScroll}
+        className="flex flex-col max-h-[800px] overflow-y-auto break-words gap-6"
+      >
         {!messages?.length && (
           <p className="text-center text-sm text-stone-500">
             Start Chat with Anthropic

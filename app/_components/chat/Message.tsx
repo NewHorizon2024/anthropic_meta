@@ -47,15 +47,14 @@ export default function Message({ role, content }: ChatMessage) {
               }
 
               return (
-                <div className="rounded-md text-sm my-2 overflow-x-auto">
-                  <SyntaxHighlighter
-                    style={dracula as Record<string, Record<string, string>>}
-                    language={lang}
-                    PreTag="div"
-                  >
-                    {String(children).replace(/\n$/, "")}
-                  </SyntaxHighlighter>
-                </div>
+                <SyntaxHighlighter
+                  style={dracula as Record<string, Record<string, string>>}
+                  language={lang}
+                  PreTag="div"
+                  className="rounded-md text-sm my-2 overflow-x-auto"
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
               );
             },
             p({ children }) {
