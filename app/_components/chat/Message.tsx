@@ -13,7 +13,7 @@ export default function Message({ role, content }: ChatMessage) {
   return (
     <div
       className={clsx(
-        "flex w-full bg-yellow-100",
+        "flex w-full",
         role === "assistant" ? "justify-start" : "justify-end",
       )}
     >

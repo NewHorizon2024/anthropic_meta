@@ -90,8 +90,8 @@ export default function Chat({ chatTitle }: ChatProps) {
           messages.map(({ role, content, id }) => (
             <Message key={id} role={role} content={content} />
           ))}
+        <div ref={bottomRef} />
       </div>
-      <div ref={bottomRef} />
 
       <div className="flex gap-2">
         <input
