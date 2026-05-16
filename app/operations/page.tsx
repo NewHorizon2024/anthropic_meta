@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Chat from "../_components/chat/Chat";
 
 const COMMENTS = "https://jsonplaceholder.typicode.com/comments";
 export default function OperationsHome() {
@@ -90,13 +91,8 @@ export default function OperationsHome() {
     //   .catch((err) => console.error(err));
   }
   return (
-    <div className="bg-gray-50 p-10">
-      <button
-        className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
-        onClick={testStream}
-      >
-        Test
-      </button>
+    <div>
+      <Chat chatTitle="Public Chat" />
     </div>
   );
 }
