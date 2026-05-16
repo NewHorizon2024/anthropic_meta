@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 import { MacroLayout } from "@/layouts/MacroLayout";
 
 const geistSans = Geist({
@@ -30,15 +29,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* <header className="w-full py-9 px-6 sticky top-0 z-50 bg-amber-100">
-          <nav className="flex gap-4">
-            <Link href="/">Home</Link>
-            <Link href="/operations">Operations</Link>
-          </nav>
-        </header>
-        <main>
-          <section>{children}</section>
-        </main> */}
         <MacroLayout>{children}</MacroLayout>
       </body>
     </html>
