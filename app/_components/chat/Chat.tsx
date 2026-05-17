@@ -13,6 +13,7 @@ type ChatProps = Readonly<{
 
 export default function Chat({ chatTitle, apiUrl }: ChatProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [status, setStatus] = useState<string>("");
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true);
@@ -75,24 +76,43 @@ export default function Chat({ chatTitle, apiUrl }: ChatProps) {
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
 
+      let buffer = "";
+
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        // Decode binary chunk to text
-        const text = decoder.decode(value, { stream: true });
+        const decoded = decoder.decode(value, { stream: true });
+        buffer += decoded;
 
-        // Append each chunk to the last message (the assistant's)
-        setMessages((prev) => {
-          const updated = [...prev];
-          const last = updated[updated.length - 1];
-          updated[updated.length - 1] = {
-            ...last,
-            content: last.content + text,
-          };
+        const lines = buffer.split("\n");
 
-          return updated;
-        });
+        buffer = lines.pop()!; // keep incomplete line
+        const message = JSON.parse(lines[0]);
+        if (message.type === "message_start") {
+          setStatus("Thinking...");
+        }
+
+        console.log(message);
+
+        if (message.type === "content_block_delta") {
+          setStatus("Writing...");
+          setMessages((prev) => {
+            const updated = [...prev];
+            const last = updated[updated.length - 1];
+            updated[updated.length - 1] = {
+              ...last,
+              content: last.content + message.delta.text,
+            };
+
+            return updated;
+          });
+        }
+
+        if (message.delta?.stop_reason === "end_turn") setStatus("");
+        if (message.delta?.stop_details === "end_turn")
+          setStatus(message.delta.stop_details);
+        if (message.type === "content_block_stop") setStatus("");
       }
     } catch (error) {
       console.error("Stream error:", error);
@@ -103,7 +123,10 @@ export default function Chat({ chatTitle, apiUrl }: ChatProps) {
 
   return (
     <div className="flex flex-col border gap-4 p-4 rounded-lg">
-      <h1 className="text-center">{chatTitle}</h1>
+      <div className="flex justify-between">
+        <span>{status}</span>
+        <h1>{chatTitle}</h1>
+      </div>
       <hr />
       <div
         ref={scrollContainerRef}

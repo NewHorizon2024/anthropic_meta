@@ -19,16 +19,14 @@ export async function POST(req: NextRequest) {
 
         for await (const chunk of res) {
           console.log(chunk);
-          if (
-            chunk.type === "content_block_delta" &&
-            chunk.delta.type === "text_delta"
-          ) {
-            controller.enqueue(new TextEncoder().encode(chunk.delta.text));
-          }
+          controller.enqueue(
+            new TextEncoder().encode(JSON.stringify(chunk) + "\n"),
+          );
         }
-        controller.close();
       } catch (error) {
         console.error(error);
+      } finally {
+        controller.close();
       }
     },
   });
