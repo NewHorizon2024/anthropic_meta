@@ -18,7 +18,6 @@ export async function POST(req: NextRequest) {
         });
 
         for await (const chunk of res) {
-          console.log(chunk);
           controller.enqueue(
             new TextEncoder().encode(JSON.stringify(chunk) + "\n"),
           );
