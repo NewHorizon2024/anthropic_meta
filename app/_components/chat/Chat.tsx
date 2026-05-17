@@ -8,15 +8,24 @@ import Message from "./Message";
 
 type ChatProps = Readonly<{
   chatTitle: string;
+  apiUrl: string;
 }>;
 
-export default function Chat({ chatTitle }: ChatProps) {
+export default function Chat({ chatTitle, apiUrl }: ChatProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true);
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const createMessage = (message: Omit<ChatMessage, "id">): ChatMessage => ({
+    ...message,
+    id:
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+  });
 
   useEffect(() => {
     if (shouldAutoScroll) {
@@ -37,22 +46,27 @@ export default function Chat({ chatTitle }: ChatProps) {
   async function sendMessage() {
     if (!input.trim() || isStreaming) return;
 
-    const userMessage: ChatMessage = { role: "user", content: input };
+    const userMessage = createMessage({ role: "user", content: input });
     const newMessages = [...messages, userMessage];
 
     // Add user message and a blank assistant message to start filling
-    setMessages([...newMessages, { role: "assistant", content: "" }]);
+    setMessages([
+      ...newMessages,
+      createMessage({ role: "assistant", content: "" }),
+    ]);
     setInput("");
     setIsStreaming(true);
     setShouldAutoScroll(true);
 
     try {
-      const response = await fetch("/api/public-chat", {
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // Send the full conversation history — this is how the model
         // maintains context across turns
-        body: JSON.stringify({ messages: newMessages }),
+        body: JSON.stringify({
+          messages: newMessages.map(({ role, content }) => ({ role, content })),
+        }),
       });
 
       if (!response.body) throw new Error("No response body");
@@ -76,6 +90,7 @@ export default function Chat({ chatTitle }: ChatProps) {
             ...last,
             content: last.content + text,
           };
+
           return updated;
         });
       }
