@@ -20,21 +20,31 @@ export default function Chat({ chatTitle, apiUrl }: ChatProps) {
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const createMessage = (message: Omit<ChatMessage, "id">): ChatMessage => ({
-    ...message,
-    id:
-      typeof crypto !== "undefined" && "randomUUID" in crypto
-        ? crypto.randomUUID()
-        : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
-  });
-
   useEffect(() => {
     if (shouldAutoScroll) {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, shouldAutoScroll]);
 
-  const handleScroll = () => {
+  // const createMessage = (message: Omit<ChatMessage, "id">): ChatMessage => ({
+  //   ...message,
+  //   id:
+  //     typeof crypto !== "undefined" && "randomUUID" in crypto
+  //       ? crypto.randomUUID()
+  //       : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+  // });
+
+  function createMessage(message: Omit<ChatMessage, "id">): ChatMessage {
+    return {
+      ...message,
+      id:
+        typeof crypto !== "undefined" && "randomUUID" in crypto
+          ? crypto.randomUUID()
+          : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+    };
+  }
+
+  function handleScroll() {
     if (!scrollContainerRef.current) return;
 
     const { scrollTop, scrollHeight, clientHeight } =
@@ -42,7 +52,7 @@ export default function Chat({ chatTitle, apiUrl }: ChatProps) {
     const isNearBottom = scrollHeight - scrollTop - clientHeight < 100;
 
     setShouldAutoScroll(isNearBottom);
-  };
+  }
 
   async function sendMessage() {
     if (!input.trim() || isStreaming) return;
@@ -93,8 +103,6 @@ export default function Chat({ chatTitle, apiUrl }: ChatProps) {
           setStatus("Thinking...");
         }
 
-        console.log(message);
-
         if (message.type === "content_block_delta") {
           setStatus("Writing...");
           setMessages((prev) => {
@@ -122,16 +130,16 @@ export default function Chat({ chatTitle, apiUrl }: ChatProps) {
   }
 
   return (
-    <div className="flex flex-col border gap-4 p-4 rounded-lg">
-      <div className="flex justify-between">
+    <div className="flex flex-col h-[80vh] border gap-4 p-4 rounded-lg bg-[#1E1E1E]">
+      <div className="flex justify-between text-teal-700">
         <span>{status}</span>
-        <h1>{chatTitle}</h1>
+        <h1 className="text-teal-700">{chatTitle}</h1>
       </div>
       <hr />
       <div
         ref={scrollContainerRef}
         onScroll={handleScroll}
-        className="flex flex-col max-h-[800px] overflow-y-auto break-words gap-6"
+        className="flex flex-col flex-grow overflow-y-auto break-words gap-6"
       >
         {!messages?.length && (
           <p className="text-center text-sm text-stone-500">
@@ -145,9 +153,9 @@ export default function Chat({ chatTitle, apiUrl }: ChatProps) {
         <div ref={bottomRef} />
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 ">
         <input
-          className="flex-1 border border-gray-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 border border-gray-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#333333] placeholder:text-gray-400 text-white"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendMessage()}

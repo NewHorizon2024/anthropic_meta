@@ -20,7 +20,7 @@ export default function Message({ role, content }: ChatMessage) {
       <div
         className={clsx(
           "p-3 rounded-md text-white max-w-[80%] prose prose-invert",
-          role === "assistant" ? "bg-taupe-900" : "bg-teal-900",
+          role === "assistant" ? "bg-transparent" : "bg-[#252526]",
         )}
       >
         <ReactMarkdown
