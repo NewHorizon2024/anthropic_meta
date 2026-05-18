@@ -86,41 +86,52 @@ export default function Chat({ chatTitle, apiUrl }: ChatProps) {
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
 
-      let buffer = "";
+      // const buffer = "";
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
         const decoded = decoder.decode(value, { stream: true });
-        buffer += decoded;
+        console.log(decoded);
+        setMessages((prev) => {
+          const updated = [...prev];
+          const last = updated[updated.length - 1];
+          updated[updated.length - 1] = {
+            ...last,
+            content: last.content + decoded,
+          };
 
-        const lines = buffer.split("\n");
+          return updated;
+        });
+        // buffer += decoded;
 
-        buffer = lines.pop()!; // keep incomplete line
-        const message = JSON.parse(lines[0]);
-        if (message.type === "message_start") {
-          setStatus("Thinking...");
-        }
+        // const lines = buffer.split("\n");
 
-        if (message.type === "content_block_delta") {
-          setStatus("Writing...");
-          setMessages((prev) => {
-            const updated = [...prev];
-            const last = updated[updated.length - 1];
-            updated[updated.length - 1] = {
-              ...last,
-              content: last.content + message.delta.text,
-            };
+        // buffer = lines.pop()!; // keep incomplete line
+        // const message = JSON.parse(lines[0]);
+        // if (message.type === "message_start") {
+        //   setStatus("Thinking...");
+        // }
 
-            return updated;
-          });
-        }
+        // if (message.type === "content_block_delta") {
+        //   setStatus("Writing...");
+        //   setMessages((prev) => {
+        //     const updated = [...prev];
+        //     const last = updated[updated.length - 1];
+        //     updated[updated.length - 1] = {
+        //       ...last,
+        //       content: last.content + message.delta.text,
+        //     };
 
-        if (message.delta?.stop_reason === "end_turn") setStatus("");
-        if (message.delta?.stop_details === "end_turn")
-          setStatus(message.delta.stop_details);
-        if (message.type === "content_block_stop") setStatus("");
+        //     return updated;
+        //   });
+        // }
+
+        // if (message.delta?.stop_reason === "end_turn") setStatus("");
+        // if (message.delta?.stop_details === "end_turn")
+        //   setStatus(message.delta.stop_details);
+        // if (message.type === "content_block_stop") setStatus("");
       }
     } catch (error) {
       console.error("Stream error:", error);
