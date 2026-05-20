@@ -2,178 +2,275 @@ import { config } from "dotenv";
 import { MongoClient } from "mongodb";
 import { resolve } from "path";
 
+import type { Country } from "@/models/countries";
+
 // Load .env.local explicitly — tsx doesn't do this automatically
 config({ path: resolve(process.cwd(), ".env") });
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
-const laptops = [
+const countries: Country[] = [
   {
-    name: "MacBook Pro 14",
-    brand: "Apple",
-    price: 1999,
+    name: "Egypt",
+    continent: "Africa",
     specs: {
-      cpu: "Apple M3 Pro",
-      ram_gb: 18,
-      storage_gb: 512,
-      screen_inches: 14.2,
-      battery_hours: 18,
-      weight_kg: 1.61,
-      gpu: "Integrated 18-core GPU",
+      weather: "Hot",
+      friendly: "People are very friendly",
+      food: "Very delicious",
+      sea: "It has 2 seas",
+      coordinates: { latitude: "26.2540493", longitude: "29.2675469" },
     },
-    category: "professional",
-    stock: 5,
-    rating: 4.8,
-    tags: ["thin", "long battery", "premium", "macos"],
   },
+
   {
-    name: "Dell XPS 15",
-    brand: "Dell",
-    price: 1799,
+    name: "Japan",
+    continent: "Asia",
     specs: {
-      cpu: "Intel Core i7-13700H",
-      ram_gb: 16,
-      storage_gb: 512,
-      screen_inches: 15.6,
-      battery_hours: 12,
-      weight_kg: 1.86,
-      gpu: "NVIDIA RTX 4060",
+      weather: "Varies by region, generally mild",
+      friendly: "Polite and respectful culture",
+      food: "World-famous cuisine",
+      sea: "Surrounded by ocean",
+      coordinates: { latitude: "36.204824", longitude: "138.252924" },
     },
-    category: "professional",
-    stock: 3,
-    rating: 4.6,
-    tags: ["gaming capable", "large screen", "windows", "powerful"],
   },
+
   {
-    name: "ThinkPad X1 Carbon",
-    brand: "Lenovo",
-    price: 1499,
+    name: "Brazil",
+    continent: "South America",
     specs: {
-      cpu: "Intel Core i7-1365U",
-      ram_gb: 16,
-      storage_gb: 512,
-      screen_inches: 14.0,
-      battery_hours: 15,
-      weight_kg: 1.12,
-      gpu: "Intel Iris Xe",
+      weather: "Tropical and warm",
+      friendly: "Very lively and welcoming",
+      food: "Rich and diverse flavors",
+      sea: "Long Atlantic coastline",
+      coordinates: { latitude: "-14.235004", longitude: "-51.92528" },
     },
-    category: "business",
-    stock: 8,
-    rating: 4.7,
-    tags: ["ultralight", "business", "long battery", "windows"],
   },
+
   {
-    name: "ASUS ROG Zephyrus G14",
-    brand: "ASUS",
-    price: 1599,
+    name: "Canada",
+    continent: "North America",
     specs: {
-      cpu: "AMD Ryzen 9 7940HS",
-      ram_gb: 32,
-      storage_gb: 1024,
-      screen_inches: 14.0,
-      battery_hours: 10,
-      weight_kg: 1.65,
-      gpu: "NVIDIA RTX 4070",
+      weather: "Cold winters, mild summers",
+      friendly: "Famously friendly",
+      food: "Comforting and hearty",
+      sea: "Atlantic, Pacific, Arctic",
+      coordinates: { latitude: "56.130366", longitude: "-106.346771" },
     },
-    category: "gaming",
-    stock: 6,
-    rating: 4.7,
-    tags: ["gaming", "powerful", "compact", "high refresh rate"],
   },
+
   {
-    name: "MacBook Air 15",
-    brand: "Apple",
-    price: 1299,
+    name: "Australia",
+    continent: "Australia",
     specs: {
-      cpu: "Apple M2",
-      ram_gb: 8,
-      storage_gb: 256,
-      screen_inches: 15.3,
-      battery_hours: 18,
-      weight_kg: 1.51,
-      gpu: "Integrated 10-core GPU",
+      weather: "Warm and sunny",
+      friendly: "Relaxed and open",
+      food: "Fresh and multicultural",
+      sea: "Surrounded by ocean",
+      coordinates: { latitude: "-25.274398", longitude: "133.775136" },
     },
-    category: "everyday",
-    stock: 12,
-    rating: 4.6,
-    tags: ["thin", "long battery", "macos", "large screen", "value"],
   },
+
   {
-    name: "Lenovo IdeaPad 5",
-    brand: "Lenovo",
-    price: 699,
+    name: "France",
+    continent: "Europe",
     specs: {
-      cpu: "AMD Ryzen 5 7530U",
-      ram_gb: 16,
-      storage_gb: 512,
-      screen_inches: 15.6,
-      battery_hours: 9,
-      weight_kg: 1.79,
-      gpu: "AMD Radeon Graphics",
+      weather: "Mild and varied",
+      friendly: "Warm once you connect",
+      food: "World-class cuisine",
+      sea: "Mediterranean & Atlantic",
+      coordinates: { latitude: "46.227638", longitude: "2.213749" },
     },
-    category: "budget",
-    stock: 15,
-    rating: 4.3,
-    tags: ["budget", "value", "windows", "everyday"],
   },
+
   {
-    name: "HP Spectre x360 14",
-    brand: "HP",
-    price: 1649,
+    name: "South Africa",
+    continent: "Africa",
     specs: {
-      cpu: "Intel Core Ultra 7",
-      ram_gb: 16,
-      storage_gb: 512,
-      screen_inches: 14.0,
-      battery_hours: 14,
-      weight_kg: 1.44,
-      gpu: "Intel Arc Graphics",
+      weather: "Sunny and warm",
+      friendly: "Very welcoming",
+      food: "Rich and flavorful",
+      sea: "Atlantic & Indian",
+      coordinates: { latitude: "-30.559482", longitude: "22.937506" },
     },
-    category: "professional",
-    stock: 4,
-    rating: 4.5,
-    tags: ["2-in-1", "touchscreen", "premium", "windows", "thin"],
   },
+
   {
-    name: "Razer Blade 15",
-    brand: "Razer",
-    price: 2499,
+    name: "India",
+    continent: "Asia",
     specs: {
-      cpu: "Intel Core i9-13950HX",
-      ram_gb: 32,
-      storage_gb: 1024,
-      screen_inches: 15.6,
-      battery_hours: 6,
-      weight_kg: 2.01,
-      gpu: "NVIDIA RTX 4080",
+      weather: "Hot and humid",
+      friendly: "Warm and expressive",
+      food: "Extremely diverse",
+      sea: "Indian Ocean coastline",
+      coordinates: { latitude: "20.593684", longitude: "78.96288" },
     },
-    category: "gaming",
-    stock: 2,
-    rating: 4.5,
-    tags: ["gaming", "premium", "powerful", "high refresh rate"],
+  },
+
+  {
+    name: "Argentina",
+    continent: "South America",
+    specs: {
+      weather: "Varied climate",
+      friendly: "Passionate and warm",
+      food: "Famous for beef dishes",
+      sea: "Atlantic coastline",
+      coordinates: { latitude: "-38.416097", longitude: "-63.616672" },
+    },
+  },
+
+  {
+    name: "Mexico",
+    continent: "North America",
+    specs: {
+      weather: "Warm and tropical",
+      friendly: "Very hospitable",
+      food: "Spicy and iconic",
+      sea: "Pacific & Gulf of Mexico",
+      coordinates: { latitude: "23.634501", longitude: "-102.552784" },
+    },
+  },
+
+  {
+    name: "New Zealand",
+    continent: "Australia",
+    specs: {
+      weather: "Mild and oceanic",
+      friendly: "Extremely friendly",
+      food: "Fresh and natural",
+      sea: "Surrounded by ocean",
+      coordinates: { latitude: "-40.900557", longitude: "174.885971" },
+    },
+  },
+
+  {
+    name: "Germany",
+    continent: "Europe",
+    specs: {
+      weather: "Cool and temperate",
+      friendly: "Direct but kind",
+      food: "Hearty and traditional",
+      sea: "North & Baltic Sea",
+      coordinates: { latitude: "51.165691", longitude: "10.451526" },
+    },
+  },
+
+  {
+    name: "Kenya",
+    continent: "Africa",
+    specs: {
+      weather: "Warm and tropical",
+      friendly: "Very welcoming",
+      food: "Rich and flavorful",
+      sea: "Indian Ocean",
+      coordinates: { latitude: "-0.023559", longitude: "37.906193" },
+    },
+  },
+
+  {
+    name: "China",
+    continent: "Asia",
+    specs: {
+      weather: "Varied climate",
+      friendly: "Respectful culture",
+      food: "Extremely diverse",
+      sea: "Pacific coastline",
+      coordinates: { latitude: "35.86166", longitude: "104.195397" },
+    },
+  },
+
+  {
+    name: "Chile",
+    continent: "South America",
+    specs: {
+      weather: "Varied, long coastline",
+      friendly: "Warm and polite",
+      food: "Seafood-rich cuisine",
+      sea: "Pacific Ocean",
+      coordinates: { latitude: "-35.675147", longitude: "-71.542969" },
+    },
+  },
+
+  {
+    name: "United States",
+    continent: "North America",
+    specs: {
+      weather: "All climates",
+      friendly: "Varies by region",
+      food: "Multicultural",
+      sea: "Atlantic & Pacific",
+      coordinates: { latitude: "37.09024", longitude: "-95.712891" },
+    },
+  },
+
+  {
+    name: "Indonesia",
+    continent: "Asia",
+    specs: {
+      weather: "Hot and humid",
+      friendly: "Very warm culture",
+      food: "Spicy and rich",
+      sea: "Thousands of islands",
+      coordinates: { latitude: "-0.789275", longitude: "113.921327" },
+    },
+  },
+
+  {
+    name: "Italy",
+    continent: "Europe",
+    specs: {
+      weather: "Mediterranean",
+      friendly: "Warm and expressive",
+      food: "Legendary cuisine",
+      sea: "Mediterranean Sea",
+      coordinates: { latitude: "41.87194", longitude: "12.56738" },
+    },
+  },
+
+  {
+    name: "Morocco",
+    continent: "Africa",
+    specs: {
+      weather: "Hot and dry",
+      friendly: "Very hospitable",
+      food: "Aromatic and rich",
+      sea: "Atlantic & Mediterranean",
+      coordinates: { latitude: "31.791702", longitude: "-7.09262" },
+    },
+  },
+
+  {
+    name: "Philippines",
+    continent: "Asia",
+    specs: {
+      weather: "Tropical",
+      friendly: "Extremely friendly",
+      food: "Sweet and savory",
+      sea: "Archipelago with many seas",
+      coordinates: { latitude: "12.879721", longitude: "121.774017" },
+    },
   },
 ];
 
 async function seed() {
   try {
     await client.connect();
-    const db = client.db("ai_shop");
-    const collection = db.collection("laptops");
+    const db = client.db("travel_guide");
+    const collection = db.collection("countries");
 
     // Clear existing data
     await collection.deleteMany({});
 
     // Insert fresh seed data
-    const result = await collection.insertMany(laptops);
-    console.log(`✅ Seeded ${result.insertedCount} laptops`);
+    const result = await collection.insertMany(countries);
+    console.log(`✅ Seeded ${result.insertedCount} countries`);
 
     // Create indexes for common queries
-    await collection.createIndex({ price: 1 });
-    await collection.createIndex({ "specs.ram_gb": 1 });
-    await collection.createIndex({ category: 1 });
-    await collection.createIndex({ brand: 1 });
-    await collection.createIndex({ tags: 1 });
+    await collection.createIndex({ "specs.weather": 1 });
+    await collection.createIndex({ "specs.friendly": 1 });
+    await collection.createIndex({ "specs.food": 1 });
+    await collection.createIndex({ "specs.sea": 1 });
+    await collection.createIndex({ "specs.coordinates": 1 });
     console.log("✅ Indexes created");
   } finally {
     await client.close();

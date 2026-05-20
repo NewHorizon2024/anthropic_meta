@@ -11,36 +11,24 @@ export async function POST(req: Request) {
     async start(controller) {
       const encode = (text: string) =>
         controller.enqueue(new TextEncoder().encode(text));
-
       try {
         const conversationMessages = [...messages];
-
         while (true) {
           const response = await client.messages.create({
             model: "claude-sonnet-4-6",
             max_tokens: 2048,
-            system: `You are a knowledgeable laptop advisor with access to a 
-real product database. Help users find, compare, and choose laptops.
-
-Tool use philosophy:
-- Always query the database for real data — never guess specs or prices
-- Use search_laptops for browsing and vague requirements
-- Use get_laptop_details when a specific laptop is mentioned by name
-- Use compare_laptops when the user wants a direct comparison
-- Use get_recommendation when the user describes their needs or use case
-- After getting data, give a clear, opinionated recommendation — don't just list facts
-- If stock is low (≤ 2), mention it proactively
-- Always mention price clearly
-
-When recommending:
-- Be direct — say "I recommend X because..."
-- Highlight the 2-3 most relevant specs for their use case
-- Acknowledge tradeoffs honestly`,
+            system:
+              "You are a travle guide specialist provding services to the customers" +
+              "Use only the database to provide answer and details about covered countried" +
+              "Tool use philosophy" +
+              "- Always query the database for real data - never guess answers" +
+              "- use get_countries for providing all countries the agent includes" +
+              "- use get_country when user ask about particlar country, if country not in list don't guess just redirect the user to check the agent catalog" +
+              "After getting the data and provding the user with the details play a role like customer service and ask the user for any other help",
             tools,
             messages: conversationMessages,
           });
 
-          // Add assistant response to history once
           conversationMessages.push({
             role: "assistant",
             content: response.content,
@@ -62,6 +50,8 @@ When recommending:
                 block.input as Record<string, unknown>,
               );
 
+              console.log("result ", result);
+
               toolResults.push({
                 type: "tool_result" as const,
                 tool_use_id: block.id,
@@ -80,7 +70,6 @@ When recommending:
           if (response.stop_reason === "end_turn") break;
           if (response.stop_reason !== "tool_use") break;
         }
-
         controller.close();
       } catch (error) {
         const message =

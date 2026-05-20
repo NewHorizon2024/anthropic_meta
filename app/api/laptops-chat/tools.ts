@@ -199,7 +199,7 @@ export async function executeTool(
   console.log(`[Tool] ${name}`, JSON.stringify(input, null, 2));
 
   try {
-    const db = await getDb();
+    const db = await getDb("ai_shop");
     const collection = db.collection("laptops");
 
     switch (name) {

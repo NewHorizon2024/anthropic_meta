@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "development") {
   client = new MongoClient(uri);
 }
 
-export async function getDb(): Promise<Db> {
+export async function getDb(db: string): Promise<Db> {
   await client.connect();
-  return client.db("ai_shop"); // your database name
+  return client.db(db); // your database name
 }
