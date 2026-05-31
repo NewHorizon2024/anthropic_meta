@@ -1,0 +1,1124 @@
+[
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01L7E9puxnTz14rhxeVmcWpL",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01A11Z8otr7LzociDbEWPXiY",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01ACgJyQssw2vWMZsbLyG568",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a wide selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01DJJC3dMcGh8JmYm6ownPHz",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_017QXY4sbi9MVE1kanz96p7t",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01GYWbQu3AUYTffs4ax38SFc",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01S3gEUHEkaRxFcsQpj9TTgc",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01DRJCntkguCoLGvHMPFwT9K",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_0147YRznm6WHbFp2G8RKgTG6",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01Tvcdzq8eTBsJBgT2xfK9tH",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01VU9t7n9QsMk4ZRz5RwXVjt",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01TEbrL7Ya3n5kq8CCW28kK8",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01RxJmuXGdXznrxAJxYupeUd",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01Eb629bRszJ1yEE2jjsL114",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_014a8DTo99VtfY5Ya7oQxZ8t",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01A5ukVukk2K9j4dSHcB7vXG",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_0199dre8WvUtyvU1XeBfsCSJ",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01D5zrjXZxYsFaLKVKrYjivQ",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01GKu7meSvLc4ZSC2Lj5N7Vg",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01WJQ5EJYdsBhhVqJRTbu1bD",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01NTqwk2TEV8yVthb2XEE5N8",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01M9zXuPSq2pcYNGyBbqTQPh",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01HFJyzwoQgRPxR9CkWTkmu5",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01W65fNmUNsKLJvbHgvahLMq",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_011yJuVQvxMfuCkxSoPb8mPn",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a variety of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01UFmwP8iNVABgEmh3kU1wKQ",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 69,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01NMDz9frx11Jpavrrbt8Dcy",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_0147semqgh1LCJSqF6yYtUEo",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_0122gqk5Tiv8ZNi6gmpvyznu",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01VpRpg19yrE9SH6WswZjMS6",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01Go596WygLqHvQ4j4pNSsw5",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_016PkNQswnErP3yMWczws1Up",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01Ssn88TxAo6prHoDmU3zmvn",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01MaJ7g7LM67mwmxsdJtDr47",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01La587o22JRm3CjuzSNmarh",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_014osA7XEVenv2QF9Goddupo",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01CC1y2AxF161JLahuKwTgzJ",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01Pou8rFc9R8B8WnuTEvfh7Z",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_0185MHgkmU8B7gmrRr26DrcP",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_0133AqkNrboLytWkcBrf3Syv",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01SJxyeAdgReVaysgKPWRdKG",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01Fy4UR8KzhSwSrCQE8XzyeD",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_013xzRDFPZkJAVEbyWh8qg9L",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_016vXYomxbVCVu3Vyyp9zikQ",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_019f6DvnF9jzSMZvgaT3C7Zm",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01MJv1DfhKxhpJYdo4LiJVPL",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01MiBcu3gSy7LijrMsEEwfaM",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_014GTMDdHP2Jd7hCXfqUz7Gu",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01TP5AM1RNtoJz1F1tLXXxhL",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_016Jn8Tac6wPvuuP36Pw97h2",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01KSTckaQ3gz2wyFMxW3cjop",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01RbWJpqdzkV6fweM7iRqEAb",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01EaaKsnG8yrmQzYTrvafBFG",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_014zdoht64X94iepattSxobd",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01E1MJcZFnhta6LUgvjtsmbZ",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_012knwYbqejpjQVavgPXRXmW",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01UayCWppjzdsP5CW2ohHxbs",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01YFfCekdCPrh38zFaeuQzEh",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_015VL1Kp32v98uv8ejpaHSCr",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01RwQB6dTdGygMZhSTZcv6sz",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01Tfdp8sVwVC7NZfdX44oMtq",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a selection of available laptops for you right now!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01DFXQg2jMxCA4xyFeuLDp8B",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 69,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01XP387dHbQhrUx3uzSWZp7w",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01J64KdEKViTj2oG2QTuFn4U",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "id": "msg_01QwhYiewhcBn1kechD92a9D",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me fetch a broad selection of laptops from our database for you!"
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01CuPcbwQUQhaypFoLGfSJnF",
+        "name": "search_laptops",
+        "input": null,
+        "caller": null
+      }
+    ],
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "stop_details": null,
+    "usage": {
+      "input_tokens": 1792,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 70,
+      "service_tier": "standard",
+      "inference_geo": "global"
+    }
+  }
+]

@@ -29,6 +29,9 @@ export async function MacroLayout({ children }: MacroLayoutProps) {
             <Link className={styleLink} href="/chat">
               Chat
             </Link>
+            <Link className={styleLink} href="/rocks">
+              Rocks
+            </Link>
           </nav>
         </div>
       </header>

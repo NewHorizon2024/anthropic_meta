@@ -31,7 +31,7 @@ export default function ChatPage() {
     setIsStreaming(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("/api/laptops-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // Send the full conversation history — this is how the model
@@ -45,14 +45,44 @@ export default function ChatPage() {
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
 
+      // In your page.tsx — update the streaming loop
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        // Decode binary chunk to text
         const text = decoder.decode(value, { stream: true });
 
-        // Append each chunk to the last message (the assistant's)
+        // Check if this chunk contains the messages sync signal
+        if (text.includes("__MESSAGES__")) {
+          const match = text.match(/__MESSAGES__(.+)__MESSAGES__/s);
+          if (match) {
+            try {
+              const updatedMessages = JSON.parse(match[1]);
+              // Sync local state with server's summarized history
+              setMessages(updatedMessages);
+            } catch (e) {
+              console.error("Failed to parse messages sync", e);
+            }
+          }
+          // Don't render the sync signal as text
+          const visibleText = text
+            .replace(/__MESSAGES__.+__MESSAGES__/s, "")
+            .trim();
+          if (visibleText) {
+            setMessages((prev) => {
+              const updated = [...prev];
+              const last = updated[updated.length - 1];
+              updated[updated.length - 1] = {
+                ...last,
+                content: last.content + visibleText,
+              };
+              return updated;
+            });
+          }
+          continue;
+        }
+
+        // Normal token — append as usual
         setMessages((prev) => {
           const updated = [...prev];
           const last = updated[updated.length - 1];

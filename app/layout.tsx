@@ -1,6 +1,8 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+
 import { MacroLayout } from "@/layouts/MacroLayout";
 
 const geistSans = Geist({

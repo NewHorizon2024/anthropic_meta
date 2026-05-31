@@ -6,16 +6,28 @@ export const tools: Anthropic.Tool[] = [
   {
     name: "get_countries",
     description:
-      "Get list of countries and their details" +
-      "Use this tool when the user asking about available countries" +
-      "User can optionally give a name of continent - you can use the tool by continent filter to get only the countries in the specific continent" +
-      "returns: an array of countries or empty array",
+      "Get a list of available travel destinations. " +
+      "Use this when the user is BROWSING or asks about multiple countries " +
+      "— for example: 'what destinations do you have?', " +
+      "'show me countries in Asia', 'what are my options?'. " +
+      "For a SPECIFIC country by name → use get_country instead. " +
+      "Continent filter is optional — omit to get all countries. " +
+      "Returns: array of countries with name, continent, and specs. " +
+      "Returns empty array if no countries match.",
     input_schema: {
       type: "object" as const,
       properties: {
-        name: {
+        continent: {
           type: "string",
-          description: "Optional name of continent that user can specify",
+          description: "Optional continent to filter by",
+          enum: [
+            "South America",
+            "North America",
+            "Europe",
+            "Asia",
+            "Africa",
+            "Oceania",
+          ],
         },
       },
       required: [],
@@ -24,16 +36,22 @@ export const tools: Anthropic.Tool[] = [
   {
     name: "get_country",
     description:
-      "Get specific country by name" +
-      "Use this tool if user ask about specific country" +
-      "returns: an array of countries or empty array",
+      "Get full details for a SPECIFIC country by name. " +
+      "Use this when the user asks about ONE specific country " +
+      "— for example: 'tell me about Brazil', 'what is Japan like?', " +
+      "'I want to visit Italy, what should I know?'. " +
+      "For browsing or listing → use get_countries instead. " +
+      "Returns: name, continent, coordinates (latitude/longitude), " +
+      "and specs including weather, friendliness, food, and sea description. " +
+      "Returns null if country is not found.",
     input_schema: {
       type: "object" as const,
       properties: {
         name: {
           type: "string",
           description:
-            "required name to search the countries and get the country",
+            "The country name to look up. " +
+            "Case insensitive. Example: 'Brazil' or 'brazil'",
         },
       },
       required: ["name"],

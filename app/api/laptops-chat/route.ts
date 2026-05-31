@@ -1,5 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 
+import { summarizeIfNeeded } from "@/lib/summarize";
+
 import { executeTool, tools } from "./tools";
 
 const client = new Anthropic();
@@ -13,39 +15,58 @@ export async function POST(req: Request) {
         controller.enqueue(new TextEncoder().encode(text));
 
       try {
-        const conversationMessages = [...messages];
+        let conversationMessages = [...messages];
 
         while (true) {
           const response = await client.messages.create({
             model: "claude-sonnet-4-6",
             max_tokens: 2048,
-            system: `You are a knowledgeable laptop advisor with access to a 
-real product database. Help users find, compare, and choose laptops.
-
-Tool use philosophy:
-- Always query the database for real data — never guess specs or prices
-- Use search_laptops for browsing and vague requirements
-- Use get_laptop_details when a specific laptop is mentioned by name
-- Use compare_laptops when the user wants a direct comparison
-- Use get_recommendation when the user describes their needs or use case
-- After getting data, give a clear, opinionated recommendation — don't just list facts
-- If stock is low (≤ 2), mention it proactively
-- Always mention price clearly
-
-When recommending:
-- Be direct — say "I recommend X because..."
-- Highlight the 2-3 most relevant specs for their use case
-- Acknowledge tradeoffs honestly`,
+            system: `You are a knowledgeable laptop advisor...`,
             tools,
             messages: conversationMessages,
           });
+          // console.log(
+          //   `[Tokens] Input: ${response.usage.input_tokens} | Output: ${response.usage.output_tokens}`,
+          // );
+          console.log("Tokens", response);
 
-          // Add assistant response to history once
+          // Check if we need to summarize AFTER each response
+          // because now we know the token count
+          const { messages: updatedMessages, wasSummarized } =
+            await summarizeIfNeeded(
+              conversationMessages,
+              response.usage.input_tokens,
+            );
+
+          if (wasSummarized) {
+            conversationMessages = updatedMessages;
+            // Tell the client about the summarization
+            // so it can update its local message history
+            encode(`\n\n[Conversation summarized to save context]\n\n`);
+          }
+
+          // Add assistant response to history
+
+          const assistantText = response.content
+            .filter((block) => block.type === "text")
+            .map((block) => (block.type === "text" ? block.text : ""))
+            .join("");
+
           conversationMessages.push({
             role: "assistant",
-            content: response.content,
+            content: assistantText,
           });
 
+          // ✅ Fixed — keep full content when tools were used
+          const hasToolUse = response.content.some(
+            (b) => b.type === "tool_use",
+          );
+
+          conversationMessages.push({
+            role: "assistant",
+            // Keep full content array when tools involved, text string otherwise
+            content: hasToolUse ? response.content : assistantText,
+          });
           const toolResults = [];
 
           for (const block of response.content) {
@@ -54,14 +75,11 @@ When recommending:
             }
 
             if (block.type === "tool_use") {
-              console.log("block", block);
               encode(`\n\n*Checking database...*\n\n`);
-
               const result = await executeTool(
                 block.name,
                 block.input as Record<string, unknown>,
               );
-
               toolResults.push({
                 type: "tool_result" as const,
                 tool_use_id: block.id,
@@ -80,6 +98,12 @@ When recommending:
           if (response.stop_reason === "end_turn") break;
           if (response.stop_reason !== "tool_use") break;
         }
+
+        // Send the final message state back to the client
+        // so it can sync its local history with the summarized version
+        encode(
+          `\n\n__MESSAGES__${JSON.stringify(conversationMessages)}__MESSAGES__`,
+        );
 
         controller.close();
       } catch (error) {
